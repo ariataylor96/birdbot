@@ -1,0 +1,13 @@
+FROM python:latest
+
+RUN pip install --upgrade poetry
+
+RUN mkdir /code
+WORKDIR /code
+
+COPY pyproject.toml .
+COPY poetry.lock .
+
+RUN poetry install
+
+CMD ["poetry", "run", "watchgod", "sheepobot.main.main"]

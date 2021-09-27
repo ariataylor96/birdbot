@@ -1,15 +1,28 @@
+[build-system]
+requires = [ "poetry-core>=1.0.0",]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "sheepobot"
 version = "0.1.0"
 description = ""
-authors = ["Mark Rawls <markrawls96@gmail.com>"]
+authors = [ "Mark Rawls <markrawls96@gmail.com>",]
+
+[tool.poetry.scripts]
+birdbot = "sheepobot.main:main"
+
+[tool.black]
+line-length = 95
+target-version = [ "py39",]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+python-dotenv = "^0.19.0"
+python-environ = "^0.4.54"
+py-cord = "^1.7.3"
+peewee = "^3.14.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+watchgod = "^0.7"
+black = "^21.9b0"
